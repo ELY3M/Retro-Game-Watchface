@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Retro Game WatchFace</string>
+    <string name="message">Watch face tapped</string>
+    <string name="my_digital_name">Retro Game Watch</string>
+    <string name="my_analog_name">Retro Game Watch</string>
+</resources>
