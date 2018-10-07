@@ -84,7 +84,7 @@ public class WeatherRequestListenerService extends WearableListenerService {
                     });
                     WeatherRequestListenerService.client.connect();
                 }
-                JSONObject json = OpenWeatherMap.getCurrentWeather(WeatherRequestListenerService.latitude, WeatherRequestListenerService.longitude);
+                JSONObject json = OpenWeatherMap.getCurrentWeather(context, WeatherRequestListenerService.latitude, WeatherRequestListenerService.longitude);
                 if (json != null) {
                     try {
                         int weatherTypeIndex;

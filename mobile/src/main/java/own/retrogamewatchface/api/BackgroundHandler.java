@@ -3,7 +3,7 @@ package own.retrogamewatchface.api;
 import android.os.Handler;
 
 public class BackgroundHandler {
-    private int delay = 60000;
+    private int delay = 600000;
     private Handler handler = new Handler();
     private final Runnable runnable;
     private boolean running = false;

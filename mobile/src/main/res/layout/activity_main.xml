@@ -3,4 +3,9 @@
     <Switch android:id="@+id/metric" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Metric" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
     <Switch android:id="@+id/twenty_four" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24HR Clock" android:layout_below="@+id/metric" android:layout_alignRight="@+id/metric" android:layout_alignParentLeft="true"/>
     <Switch android:id="@+id/euro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Day/Month/Year" android:layout_below="@+id/twenty_four" android:layout_alignRight="@+id/twenty_four" android:layout_alignParentLeft="true"/>
+
+    <EditText android:id="@+id/apikey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="api key for openweathermap" android:layout_below="@+id/euro" android:layout_alignRight="@+id/euro" android:layout_alignParentLeft="true"/>
+
+
+
 </RelativeLayout>

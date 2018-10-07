@@ -2,9 +2,11 @@ package own.retrogamewatchface.retrogamewatch;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Switch;
+import android.widget.EditText;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.Builder;
 import com.google.android.gms.common.api.ResultCallback;
@@ -20,12 +22,20 @@ import own.retrogamewatchface.api.util.GoogleAPI;
 import own.retrogamewatchface.api.util.handle.BuildHandle;
 import java.util.Iterator;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends Activity {
+    String TAG = "retrogamewatch Main";
     private GoogleApiClient client;
     private Switch dayType;
     private Switch metric;
     private Switch twentyFour;
+    private EditText apikey;
+    public static String myapikey;
+    public static SharedPreferences pref;
+    public static SharedPreferences.Editor editor;
+
 
     private void updateBooleans() {
         new Thread(new Runnable() {
@@ -104,13 +114,33 @@ public class MainActivity extends Activity {
                 MainActivity.this.updateBooleans();
             }
         };
-        this.metric = (Switch) findViewById(R.id.metric);
-        this.metric.setOnClickListener(updateOnClick);
-        this.twentyFour = (Switch) findViewById(R.id.twenty_four);
-        this.twentyFour.setOnClickListener(updateOnClick);
-        this.dayType = (Switch) findViewById(R.id.euro);
-        this.dayType.setOnClickListener(updateOnClick);
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = pref.edit();
+        myapikey = pref.getString("APIKEY", "your api key for openweathermap");
+
+        metric = (Switch) findViewById(R.id.metric);
+        metric.setOnClickListener(updateOnClick);
+        twentyFour = (Switch) findViewById(R.id.twenty_four);
+        twentyFour.setOnClickListener(updateOnClick);
+        dayType = (Switch) findViewById(R.id.euro);
+        dayType.setOnClickListener(updateOnClick);
+        apikey = (EditText) findViewById(R.id.apikey);
+        apikey.setText(myapikey);
+        Log.i(TAG, "edittext: "+myapikey);
         restore();
+    }
+
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        myapikey=apikey.getText().toString();
+        editor.putString("APIKEY", apikey.getText().toString());
+        editor.apply();
+        Log.i(TAG, "onstop: "+myapikey);
     }
 
     public void onDestroy() {

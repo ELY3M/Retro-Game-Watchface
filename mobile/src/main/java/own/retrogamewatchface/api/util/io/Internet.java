@@ -16,7 +16,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class Internet {
 
     static String TAG = "retrogamewatch Internet";
-    static String agent = "my own written app email: elymbmx@gmail.com";
+    static String agent = "Retro Game WatchFace - email: elymbmx@gmail.com";
 
 
     public static URL urlFromString(String url) {
@@ -39,7 +39,7 @@ public class Internet {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     Log.d(TAG, agent);
                     conn.setRequestProperty("User-Agent", agent);
-                    conn.setRequestProperty("Accept", "application/vnd.noaa.dwml+xml;version=1");
+                    //conn.setRequestProperty("Accept", "application/vnd.noaa.dwml+xml;version=1");
 
                     conn.setReadTimeout(10000 /* milliseconds */);
                     conn.setConnectTimeout(10000 /* milliseconds */);
@@ -70,6 +70,7 @@ public class Internet {
         thread.start();
         Log.i(TAG, "fetchJSON() end...");
 
+        Log.i(TAG, "url: "+urlLocation);
         Log.i(TAG, "data: "+data);
         return data;
     }
