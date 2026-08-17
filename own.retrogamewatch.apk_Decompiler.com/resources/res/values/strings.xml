@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ID_LABEL_RETRO_GAME_WATCH">Retro Game Watch</string>
+    <string name="app_name">Retro Game Watch</string>
+    <string name="title_runtime">Module Runtime</string>
+    <string name="watchface_title">Retro Game Watch</string>
+</resources>

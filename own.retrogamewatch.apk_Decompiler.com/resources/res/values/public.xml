@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="preview" id="0x7f010000" />
+    <public type="drawable" name="preview_circular" id="0x7f010001" />
+    <public type="drawable" name="wfs_0_61490fe4_8773_45d9_9e81_8390316ee3f4" id="0x7f010002" />
+    <public type="drawable" name="wfs_100_aa384422_da58_4370_a599_4af6512c3072" id="0x7f010003" />
+    <public type="drawable" name="wfs_10_4a85608a_bde1_4bf0_b84f_d87bea8f643a" id="0x7f010004" />
+    <public type="drawable" name="wfs_20_6abcab5f_0805_4342_a3bb_c861d28e8990" id="0x7f010005" />
+    <public type="drawable" name="wfs_30_3e98648b_7c3f_4a13_b6e4_bb6a6711cc7b" id="0x7f010006" />
+    <public type="drawable" name="wfs_40_a1a09d8a_62cc_428e_98ff_71d87bd0eaf6" id="0x7f010007" />
+    <public type="drawable" name="wfs_50_09c7f318_a9c0_4e2c_9f31_88d227e96de5" id="0x7f010008" />
+    <public type="drawable" name="wfs_60_4c6bbf95_2b59_4cb8_b737_ac946353cba7" id="0x7f010009" />
+    <public type="drawable" name="wfs_70_81d63fa6_0539_42dd_a66b_43e57a2b30a8" id="0x7f01000a" />
+    <public type="drawable" name="wfs_80_99f1bb9c_bbaa_4684_989a_c375d6758d92" id="0x7f01000b" />
+    <public type="drawable" name="wfs_90_22f640e4_a2fb_4f7b_9f21_d65a74c5cf57" id="0x7f01000c" />
+    <public type="drawable" name="wfs_clear_9d1805d5_83e6_4906_82c0_160d5a766096" id="0x7f01000d" />
+    <public type="drawable" name="wfs_cloudy_33c6d5c5_8654_41cc_a267_df06c4af55b7" id="0x7f01000e" />
+    <public type="drawable" name="wfs_rainy_feb31136_bf4f_4b76_99f7_1507907b7b97" id="0x7f01000f" />
+    <public type="drawable" name="wfs_snowy_ac572c3e_296c_4f37_b74f_1a66c311f420" id="0x7f010010" />
+    <public type="font" name="wfs_pixel_f3ff58bb_f555_4438_bce1_9765d6d7be2d" id="0x7f020000" />
+    <public type="raw" name="watchface" id="0x7f030000" />
+    <public type="string" name="ID_LABEL_RETRO_GAME_WATCH" id="0x7f040000" />
+    <public type="string" name="app_name" id="0x7f040001" />
+    <public type="string" name="title_runtime" id="0x7f040002" />
+    <public type="string" name="watchface_title" id="0x7f040003" />
+    <public type="xml" name="watch_face" id="0x7f050000" />
+    <public type="xml" name="watch_face_info" id="0x7f050001" />
+    <public type="xml" name="watch_face_shapes" id="0x7f050002" />
+    <public type="xml" name="splits0" id="0x7f050003" />
+</resources>
