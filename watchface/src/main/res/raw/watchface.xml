@@ -1,0 +1,141 @@
+<WatchFace
+    height="450"
+    width="450">
+    <Metadata
+        key="CLOCK_TYPE"
+        value="DIGITAL" />
+    <Scene>
+
+
+
+        <!-- Time -->
+        <PartText pivotX="0.4975" pivotY="0.6905" x="26" y="57" width="398" height="147" name="Time" alpha="255"><Localization calendar="GREGORIAN"/>
+            <Text><Font family="pixel" size="63" color="#ffffffff">
+                <Template>%s:%s:%s %s
+                    <Parameter expression="[HOUR_1_12_Z]"/>
+                <Parameter expression="[MINUTE_Z]"/>
+                <Parameter expression="[SECOND_Z]"/>
+                <Parameter expression="[AMPM_STRING]"/>
+            </Template></Font></Text></PartText>
+
+        <!-- day -->
+        <PartText pivotX="0.7733" pivotY="0.47" x="236" y="131" width="150" height="100" name="day" alpha="255">
+            <Text><Font family="pixel" size="39" color="#ffffffff">
+                <Template>%s
+                    <Parameter expression="[DAY_OF_WEEK_F]"/>
+    </Template></Font></Text></PartText>
+
+        <!-- date-->
+        <PartText x="173" y="181" width="217" height="100" name="date" alpha="255">
+            <Text><Font family="pixel" size="39" color="#ffffffff">
+            <Template>%s/%s/%s
+                <Parameter expression="[MONTH]"/>
+            <Parameter expression="[DAY]"/>
+            <Parameter expression="[YEAR]"/>
+        </Template></Font></Text></PartText>
+
+        <!-- temp -->
+        <PartText pivotX="0.4867" pivotY="0.35" x="199" y="275" width="150" height="100" name="Temp" alpha="255">
+            <Text><Font family="pixel" size="75" color="#ffffffff">
+                <Template>%s°%s
+                    <Parameter expression="[WEATHER.TEMPERATURE]"/>
+        <Parameter expression="(([WEATHER.TEMPERATURE_UNIT] == 2)?&quot;F&quot;:&quot;C&quot;)"/>
+    </Template></Font></Text></PartText>
+
+
+
+<!-- battery -->
+        <Group x="82" y="204" width="52" height="55" name="battery" alpha="255">
+            <PartImage x="0" y="0" width="52" height="52" name="100_a63a" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=99?-100:0)) / 100 * 255), 0, 255)"/>
+                <Image resource="b100"/>
+            </PartImage><PartImage x="0" y="0" width="52" height="52" name="90_8c51" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=89?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b90"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="80_2a89" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=79?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b80"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="70_d663" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=69?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b70"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="60_15f7" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=59?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b60"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="50_e504" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=49?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b50"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="40_23df" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=39?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b40"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="30_2a34" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=29?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b30"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="20_c76f" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=19?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b20"/>
+        </PartImage><PartImage x="0" y="0" width="52" height="52" name="10_7272" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=9?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b10"/>
+        </PartImage><PartImage x="0" y="3" width="52" height="52" name="0_d241" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([BATTERY_PERCENT]&lt;=-1?-100:0)) / 100 * 255), 0, 255)"/>
+            <Image resource="b0"/>
+        </PartImage></Group>
+
+        <!-- weather condition icon -->
+        <Group x="50" y="260" width="50" height="50" pivotX="0.5" pivotY="0.5" name="weatherimage_9328" alpha="255"><Variant mode="AMBIENT" target="alpha" value="0"/>
+            <Condition><Expressions><Expression name="conditionalLine_b24d"><![CDATA[([WEATHER.CONDITION] == 15)]]></Expression></Expressions><Compare expression="conditionalLine_b24d"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nwind_7cb1" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="windy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_87b2"><![CDATA[([WEATHER.CONDITION] == 15)]]></Expression></Expressions><Compare expression="conditionalLine_87b2"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="wind_104a" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="windy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_9089"><![CDATA[([WEATHER.CONDITION] == 13)]]></Expression></Expressions><Compare expression="conditionalLine_9089"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nfu_0529" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="fog"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_a615"><![CDATA[([WEATHER.CONDITION] == 13)]]></Expression></Expressions><Compare expression="conditionalLine_a615"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="fu_2719" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="fog"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_e06c"><![CDATA[([WEATHER.CONDITION] == 12)]]></Expression></Expressions><Compare expression="conditionalLine_e06c"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="lightrainnight_f442" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="rainy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_8f83"><![CDATA[([WEATHER.CONDITION] == 12)]]></Expression></Expressions><Compare expression="conditionalLine_8f83"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="lightrainday_8b57" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="rainy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_b4f6"><![CDATA[([WEATHER.CONDITION] == 11)]]></Expression></Expressions><Compare expression="conditionalLine_b4f6"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="lightsnownight_0c88" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="snow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_12a2"><![CDATA[([WEATHER.CONDITION] == 11)]]></Expression></Expressions><Compare expression="conditionalLine_12a2"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="lightsnowday_dbb3" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="snow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_d97b"><![CDATA[([WEATHER.CONDITION] == 6)]]></Expression></Expressions><Compare expression="conditionalLine_d97b"><PartImage x="0" y="0" width="130" height="101" pivotX="0.5" pivotY="0.5" name="nra_a633" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="rainy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_b8e6"><![CDATA[([WEATHER.CONDITION] == 6)]]></Expression></Expressions><Compare expression="conditionalLine_b8e6"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="ra_330d" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="rainy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_5bc2"><![CDATA[([WEATHER.CONDITION] == 5)]]></Expression></Expressions><Compare expression="conditionalLine_5bc2"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="heavysnownight_8bb1" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="heavysnow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_fb4a"><![CDATA[([WEATHER.CONDITION] == 5)]]></Expression></Expressions><Compare expression="conditionalLine_fb4a"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="heavysnowday_6c6a" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="heavysnow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_4672"><![CDATA[([WEATHER.CONDITION] == 4)]]></Expression></Expressions><Compare expression="conditionalLine_4672"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="heavyrainnight_2e57" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="heavyrain"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_e209"><![CDATA[([WEATHER.CONDITION] == 4)]]></Expression></Expressions><Compare expression="conditionalLine_e209"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="heavyrainday_9c1a" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="heavyrain"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_d423"><![CDATA[([WEATHER.CONDITION] == 10)]]></Expression></Expressions><Compare expression="conditionalLine_d423"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nfzra_a26d" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="sleet"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_6bab"><![CDATA[([WEATHER.CONDITION] == 10)]]></Expression></Expressions><Compare expression="conditionalLine_6bab"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="fzra_21f7" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="sleet"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_5fc4"><![CDATA[([WEATHER.CONDITION] == 9)]]></Expression></Expressions><Compare expression="conditionalLine_5fc4"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="ntsra_c6e3" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="thunder"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_121e"><![CDATA[([WEATHER.CONDITION] == 9)]]></Expression></Expressions><Compare expression="conditionalLine_121e"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="tsra_31ea" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="thunder"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_8792"><![CDATA[([WEATHER.CONDITION] == 7)]]></Expression></Expressions><Compare expression="conditionalLine_8792"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nsn_fc76" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="snow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_b7c3"><![CDATA[([WEATHER.CONDITION] == 7)]]></Expression></Expressions><Compare expression="conditionalLine_b7c3"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="sn_43a1" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="snow"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_cf66"><![CDATA[([WEATHER.CONDITION] == 14)]]></Expression></Expressions><Compare expression="conditionalLine_cf66"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nbkn_5d45" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="partlycloudy_night"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_267d"><![CDATA[([WEATHER.CONDITION] == 14)]]></Expression></Expressions><Compare expression="conditionalLine_267d"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="bkn_fa8e" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="partlycloudy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_6d31"><![CDATA[([WEATHER.CONDITION] == 3)]]></Expression></Expressions><Compare expression="conditionalLine_6d31"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nfg_e677" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="fog"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_38e3"><![CDATA[([WEATHER.CONDITION] == 3)]]></Expression></Expressions><Compare expression="conditionalLine_38e3"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="fg_385f" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="fog"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_3961"><![CDATA[([WEATHER.CONDITION] == 2)]]></Expression></Expressions><Compare expression="conditionalLine_3961"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="novc_be3b" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="cloudy_night"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_d469"><![CDATA[([WEATHER.CONDITION] == 2)]]></Expression></Expressions><Compare expression="conditionalLine_d469"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="ovc_95b9" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="cloudy"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_8cab"><![CDATA[([WEATHER.CONDITION] == 1) || ([WEATHER.CONDITION] == 8)]]></Expression></Expressions><Compare expression="conditionalLine_8cab"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="nskc_42bd" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 0)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="clear_night"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_9fbe"><![CDATA[([WEATHER.CONDITION] == 1) || ([WEATHER.CONDITION] == 8)]]></Expression></Expressions><Compare expression="conditionalLine_9fbe"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="skc_9f5f" alpha="255"><Transform target="alpha" value="clamp(floor((0 + ((([WEATHER.IS_DAY] == 1)?100:0))) / 100 * 255), 0, 255)"/>
+                <Image resource="clear"/>
+            </PartImage></Compare></Condition><Condition><Expressions><Expression name="conditionalLine_04ef"><![CDATA[([WEATHER.CONDITION] == 0)]]></Expression></Expressions><Compare expression="conditionalLine_04ef"><PartImage x="0" y="1" width="130" height="100" pivotX="0.5" pivotY="0.5" name="unknown_3226" alpha="255"><Transform target="alpha" value="clamp(floor((100 + ([WEATHER.IS_AVAILABLE])) / 100 * 255), 0, 255)"/>
+                <Image resource="unknown"/>
+            </PartImage></Compare></Condition></Group>
+
+
+
+
+
+
+    </Scene>
+</WatchFace>
