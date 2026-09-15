@@ -32,7 +32,9 @@ jobs:
           java-version: 21
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3 
+        uses: android-actions/setup-android@v3
+        with:
+          accept-android-sdk-licenses: true
         
       - uses: gradle/actions/setup-gradle@v6
         with:
